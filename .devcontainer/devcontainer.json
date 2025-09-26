@@ -1,0 +1,26 @@
+{
+  "name": "C# Jupyter Notebook",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "ms-toolsai.jupyter",
+        "ms-dotnettools.dotnet-interactive-vscode"
+      ]
+    }
+  },
+  "postCreateCommand": "dotnet tool install -g Microsoft.dotnet-interactive && dotnet interactive jupyter install",
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "Jupyter",
+      "onAutoForward": "notify"
+    }
+  }
+}
